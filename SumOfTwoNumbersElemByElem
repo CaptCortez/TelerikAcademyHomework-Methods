@@ -1,0 +1,51 @@
+using System;
+ 
+class Program
+{
+    static void Main()
+    {
+        string firstNumber = "3 4 2 5 2 3 6 4 6 2";
+       
+        string secondNumber = "2 4 3 5 3 6 4 7 5 4";
+       
+        string[] fNumChars = firstNumber.Split(' ');
+        string[] sNumChars = secondNumber.Split(' ');
+       
+        int length = (fNumChars.Length > sNumChars.Length) ? fNumChars.Length : sNumChars.Length;
+        int[] result = new int[length];
+       
+        for(int i = 0; i < length; i++)
+        {
+            Console.Write(fNumChars[length - i - 1] + " - " + sNumChars[length - i - 1]);
+            Console.WriteLine();
+        }
+       
+        Console.WriteLine("\n");
+       
+        int num = 0;
+        int x = 0;
+        int sum = 0;
+        for(int j = 0; j < length; j++)
+        {
+            sum = (int.Parse(fNumChars[length - j - 1]) + int.Parse(sNumChars[length - j - 1])) + x;
+            Console.Write(sum + " ");
+            if(sum > 9)
+            {
+                result[length - j - 1] = sum % 10;
+                x = 1;
+            }
+            else
+            {
+                result[length - j - 1] = sum;
+                x = 0;
+            }
+        }
+       
+        Console.WriteLine("\n");
+        for(int s = 0; s < result.Length; s++)
+        {
+            Console.Write(result[s] + " ");
+        }
+       
+    }
+}
