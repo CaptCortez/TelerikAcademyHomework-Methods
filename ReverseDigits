@@ -1,0 +1,24 @@
+using System;
+
+class reverseDigits
+{
+    static string ReverseDigits(char[] array)
+    {
+        string output = "";
+
+        for (int i = 0; i < array.Length; i++)
+        {
+            output += array[array.Length - i - 1];
+        }
+        return output;
+    }
+    static void Main()
+    {
+        Console.WriteLine("PLease enter number:");
+        string input = Console.ReadLine();
+        char[] arr = input.ToCharArray();
+
+        string result = ReverseDigits(arr);
+        Console.WriteLine("\nReversed Number: {0}", result);
+    }
+}
